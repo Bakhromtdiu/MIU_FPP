@@ -1,0 +1,44 @@
+public class HeartRates {
+
+
+    private String firstName;
+    private String lasttName;
+    private LocalDate birthDate;
+
+
+    private int year;
+
+    public HeartRates(String firstName, String lasttName, int year, int month, int day) {
+        LocalDate localDate = LocalDate.of(year, month, day);
+        this.firstName = firstName;
+        this.lasttName = lasttName;
+        this.birthDate = localDate;
+        this.year = year;
+    }
+
+    private final int RHR = 70;
+    // private final int MHR = 220 - age;
+
+    private final float LB = 0.5F;
+    private final float UB = 0.85F;
+    int AHR = MHR() - RHR;
+
+    
+
+
+    public Integer MHR() {
+        return 220 - (2023 - year);
+    }
+
+    public double LBTHR() {
+        return (AHR * LB) + RHR;
+    }
+
+    public double UBTHR() {
+        return (AHR * UB) + RHR;
+    }
+
+    public int age() {
+        return 2023 - year;
+    }
+}
